@@ -1,13 +1,19 @@
 function compute() {
     var principal = document.getElementById("principal").value;
+
+    // check for valid input
     if (principal < 1 || principal == "") {
         alert("Enter a positive number");
         document.getElementById("principal").focus();
         return false;
     }
+
+    // get values form html fields
     var rate = document.getElementById("rate").value;
     var years = document.getElementById("years").value;
     var interest = principal * years * rate / 100;
+    
+    // configure date and do calculations based on input
     var date = new Date();
     var thisYear = date.getFullYear();
     var futureYear = thisYear + Number(years);
@@ -20,6 +26,7 @@ function compute() {
 }
 
 function update() {
+    // update the slider
     var slider = document.getElementById("rate");
     var output = document.getElementById("demo");
     var percents = slider.value + "%";
